@@ -142,7 +142,6 @@ async def custom_event(sid, data):
 
 @app.post("/items/")
 async def create_item(item: Item):
-    result = {**item.dict()}
     await sio.emit('response',{"action":item.action,"args":item.args,"status":item.args},)
     return onlines
     
